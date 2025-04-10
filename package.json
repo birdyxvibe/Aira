@@ -1,0 +1,19 @@
+{
+  "name": "aira",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.24.0",
+    "prisma": "^6.5.0"
+  }
+}
