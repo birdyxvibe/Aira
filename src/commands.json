@@ -1,0 +1,10 @@
+[
+    {
+        "name": "ping",
+        "description": "Check the application's latency."
+    },
+    {
+        "name": "id",
+        "description": "Check your ID."
+    }
+]
