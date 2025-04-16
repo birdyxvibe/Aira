@@ -3,13 +3,15 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id            Int         @id @default(autoincrement())
+  id            String      @map("_id") @id @default(auto()) @db.ObjectId
   createdAt     DateTime    @default(now())
+  
   discordId     String      @unique
 
+  Coins         Int         @default(0)
 }

@@ -1,19 +1,32 @@
 {
   "name": "aira",
   "version": "1.0.0",
-  "main": "index.js",
+  "exports": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node --loader esm-module-alias/loader --no-warnings index.js",
+    "load": "node src/load.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "type": "module",
+  "imports": {
+    "#listeners/*.js": "./listeners/*.js",
+    "#helpers/*.js": "./helpers/*.js",
+    "#database/*.js": "./database/*.js"
+  },
   "dependencies": {
-    "@prisma/client": "^6.5.0",
+    "@prisma/client": "^6.6.0",
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
-    "eslint": "^9.24.0",
+    "esm-module-alias": "^2.2.1",
     "prisma": "^6.5.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.24.0",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.3",
+    "prettier-eslint": "^16.3.0"
   }
 }

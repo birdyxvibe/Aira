@@ -1,9 +1,20 @@
-const prisma = require('@prisma/client')
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
-async function getUser(discordId) {
-    return await prisma.user.findUnique({ where: { discordId } });
-}
+export const getUser = async (discordId) => {
+	let user =  await prisma.user.findUnique({ 
+		where: { discordId } 
+	});
+	
+	if(!user){
+		user = await createUser(discordId)
+	}
 
-async function createUser(user){
-    
-}
+	return user;
+};
+
+export const createUser = async (discordId) => {
+	return await prisma.user.create({
+		data: { discordId }
+	});
+};
