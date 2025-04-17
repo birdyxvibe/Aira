@@ -5,7 +5,6 @@ import { EmbedBuilder } from 'discord.js';
  * @param {Client} client
  * @param {Interaction} interaction
  */
-
 export const execute = (client, interaction) => {
 
 	const pingEmbed = new EmbedBuilder()
