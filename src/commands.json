@@ -4,7 +4,7 @@
         "description": "Check the application's latency."
     },
     {
-        "name": "id",
-        "description": "Check your ID."
+        "name": "help",
+        "description": "View a list of all application commands."
     }
 ]

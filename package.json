@@ -13,7 +13,8 @@
   "imports": {
     "#listeners/*.js": "./listeners/*.js",
     "#helpers/*.js": "./helpers/*.js",
-    "#database/*.js": "./database/*.js"
+    "#database/*.js": "./database/*.js",
+		"#config/*.js": "./config/*.js"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",

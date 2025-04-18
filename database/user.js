@@ -6,8 +6,8 @@ export const getUser = async (discordId) => {
 		where: { discordId } 
 	});
 	
-	if(!user){
-		user = await createUser(discordId)
+	if (!user) {
+		user = await createUser(discordId);
 	}
 
 	return user;

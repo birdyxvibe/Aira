@@ -5,7 +5,7 @@ const interactionListener = async (client, interaction) => {
 
 	switch (interaction.commandName) {
 	case 'ping':
-	case 'id':
+	case 'help':
 		run(client, { name: interaction.commandName, category: 'utilities' }, interaction);
 		break;
 	}
