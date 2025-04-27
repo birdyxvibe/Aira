@@ -2,14 +2,7 @@ import { run } from '#helpers/commandHelper.js';
 
 const interactionListener = async (client, interaction) => {
 	if (!interaction.isCommand()) { return; }
-
-	switch (interaction.commandName) {
-	case 'ping':
-	case 'help':
-		run(client, { name: interaction.commandName, category: 'utilities' }, interaction);
-		break;
-	}
-
+	run(client, interaction.commandName, interaction);
 };
 
 export default interactionListener;

@@ -1,14 +1,18 @@
 {
-    "eslint.enable": true,
-    "eslint.run": "onType",
-    "eslint.alwaysShowStatus": true,
-    "eslint.validate": [
-        "javascript",
-        "typescript",
-        "javascriptreact",
-        "typescriptreact"
-      ],
-    "editor.insertSpaces": false,
-    "editor.tabSize": 2,
-    "editor.detectIndentation": false
+  "eslint.enable": true,
+  "eslint.run": "onType",
+  "eslint.alwaysShowStatus": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "editor.insertSpaces": false,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true
 }

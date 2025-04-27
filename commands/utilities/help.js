@@ -1,5 +1,5 @@
 import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } from 'discord.js';
-import commandMap from '#config/commandMap.js';
+import commandMap from '#config/helpCommandMap.js';
 
 /**
  * Help command — check active commands
