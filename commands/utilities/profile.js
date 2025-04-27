@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-import { PrismaClient } from '@prisma/client';
+import user from '#database/user';
 
 /**
  * Ping command — checks bot latency.
