@@ -6,5 +6,9 @@ export default [
 	{
 		'name': 'help',
 		'description': 'View a list of all application commands.'
+	},
+	{
+		'name': 'profile',
+		'description': 'View your user profile.'
 	}
 ];
