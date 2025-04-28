@@ -14,11 +14,11 @@
     "#listeners/*.js": "./listeners/*.js",
     "#helpers/*.js": "./helpers/*.js",
     "#database/*.js": "./database/*.js",
-		"#config/*.js": "./config/*.js"
+    "#config/*.js": "./config/*.js"
   },
   "dependencies": {
     "@prisma/client": "^6.6.0",
-    "discord.js": "^14.18.0",
+    "discord.js": "^14.19.0",
     "dotenv": "^16.4.7",
     "esm-module-alias": "^2.2.1",
     "prisma": "^6.5.0"
