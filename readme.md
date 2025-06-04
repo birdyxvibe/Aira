@@ -1,3 +1,4 @@
+# Welcome to Aira 👻
 ## When Pulling from Git
 1) Ensure you run **npx prisma generate** to generate the database with the correct migration.
 2) Ensure ENV variables are consistient (for local: BOT_TOKEN, DATABASE_URL, ClientID, GuildID; remove GuildID in production)
@@ -13,3 +14,7 @@
 2) Make sure that BOT_TOKEN is your application's token, and that ClientID matches. Make sure that GuildID is the ID of your test guild.
 3) Run **npm run load** to update application commands.
 4) Run **npm run start** or **node .** to activate your application.
+
+## Unit Testing
+1) Please ensure that all features work, and are bug free before you push to main or approve an MR. 
+2) Once pushed to production, please ensure the features also work in production.
