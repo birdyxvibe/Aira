@@ -8,14 +8,11 @@ import user from '#database/user';
  */
 export const execute = async (client, interaction) => {
 
-	const prisma = new PrismaClient();
-	const user = await prisma.user.findUnique({
-		where: { discordId: interaction.user.id }
-	});
+	const userData = user.getUser(interaction.user.id);
 
 	const profileEmbed = new EmbedBuilder()
 		.setColor('#6691C2')
-		.setTitle(`\`ID-${user.id}\` ${interaction.user.username}`)
+		.setTitle(`\`ID-${userData.id}\` ${interaction.user.username}`)
 		.setThumbnail(interaction.user.displayAvatarURL());
 
 	interaction.reply({ embeds: [profileEmbed] });

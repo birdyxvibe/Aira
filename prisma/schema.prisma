@@ -13,5 +13,8 @@ model User {
   
   discordId     String      @unique
 
-  Coins         Int         @default(0)
+	Coins         Int         @default(100)
+	Gems 					Int					@default(0)
+
+	nextDaily			DateTime		@default(now())
 }

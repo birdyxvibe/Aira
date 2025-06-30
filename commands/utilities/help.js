@@ -22,6 +22,13 @@ export const execute = async (client, interaction) => {
 		.setEmoji('🏠')
 		.setLabel('Home')
 		.setStyle(ButtonStyle.Primary);
+	
+	const helpECONOMYbutton = new ButtonBuilder()
+		.setCustomId('help-economy')
+		.setDisabled(false)
+		.setEmoji('💸')
+		.setLabel('Economy')
+		.setStyle(ButtonStyle.Success);
 
 	const helpUTILITIESbutton = new ButtonBuilder()
 		.setCustomId('help-utilities')
@@ -32,11 +39,12 @@ export const execute = async (client, interaction) => {
 
 	commandMap.home.button = helpHOMEbutton;
 	commandMap.utilities.button = helpUTILITIESbutton;
+	commandMap.economy.button = helpECONOMYbutton;
 
 	let lastPageButton = helpHOMEbutton;
 
 	const CategoriesRow = new ActionRowBuilder()
-		.addComponents([helpHOMEbutton, helpUTILITIESbutton]);
+		.addComponents([helpHOMEbutton, helpECONOMYbutton, helpUTILITIESbutton]);
 
 	const interactionResponse = await interaction.reply({ embeds: [HelpEmbed], components: [CategoriesRow] });
 

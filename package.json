@@ -1,6 +1,6 @@
 {
   "name": "aira",
-  "version": "1.0.0",
+  "version": "Alpha",
   "exports": "./index.js",
   "scripts": {
     "start": "node --loader esm-module-alias/loader --no-warnings index.js",
