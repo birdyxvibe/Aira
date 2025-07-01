@@ -1,7 +1,9 @@
 export default {
-	'ping': { name: 'ping', category: 'utilities' },
-	'help': { name: 'help', category: 'utilities' },
-	'profile': { name: 'profile', category: 'utilities' },
+	ping: { name: 'ping', category: 'utilities' },
+	help: { name: 'help', category: 'utilities' },
+	profile: { name: 'profile', category: 'utilities' },
 
-	'daily': { name: 'daily', category: 'economy' }
+	daily: { name: 'daily', category: 'economy' },
+
+	'fish buyrod': { name: 'buyrod', category: 'fishing' }
 };

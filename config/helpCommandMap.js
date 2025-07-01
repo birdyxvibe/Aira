@@ -7,7 +7,7 @@ export default {
 		description: 'For further information on a command, select the command\'s corresponding category below.',
 		fields: [
 			{ name: '`⚙️` Utilities', value: '`ping` `help` `profile`'},
-			{ name: '`⚙️` Utilities', value: '`ping` `help` `profile`'},
+			{ name: '`⚙️` Economy', value: '`daily`'},
 		]
 	},
 	'utilities': {
@@ -22,7 +22,7 @@ export default {
 	},
 	'economy': {
 		button: null,
-		color: '#',
+		color: '#1BEA1E',
 		title: '`💸` Economy Information',
 		description: 'Below is information on the **economy** commands.',
 		fields: [

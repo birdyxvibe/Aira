@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-import { getUser } from '#database/user';
+import user from '#database/user.js';
 
 /**
  * Ping command — checks bot latency.
@@ -8,12 +8,15 @@ import { getUser } from '#database/user';
  */
 export const execute = async (client, interaction) => {
 
-	const userData = user.getUser(interaction.user.id);
+	const userData = await user.getUser(interaction.user.id);
 
 	const profileEmbed = new EmbedBuilder()
 		.setColor('#6691C2')
 		.setTitle(`\`ID-${userData.id}\` ${interaction.user.username}`)
-		.setThumbnail(interaction.user.displayAvatarURL());
+		.setThumbnail(interaction.user.displayAvatarURL())
+		.addFields([
+			{ name: '`🪙` Coins', value: `\`${userData.Coins}\`` }
+		]);
 
 	interaction.reply({ embeds: [profileEmbed] });
 };

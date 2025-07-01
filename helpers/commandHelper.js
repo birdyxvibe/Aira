@@ -6,10 +6,19 @@ import commands from '#config/commands.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-export const run = async(client, command, interaction) => {
-	commandInfo = commands[command];
-	commandName = commandInfo.name;
-	commandCategory = commandInfo.category;
+export const run = async(client, interaction) => {
+
+	let cmdName = interaction.commandName;
+	if (['fish'].includes(cmdName)) { cmdName = interaction.commandName + ' ' + interaction.options.getSubcommand(); }
+
+	const commandInfo = commands[cmdName];
+
+	if (!commandInfo) {
+		return interaction.reply(`**Error Code:** \`404\`\n> \`❌\` Command \`${cmdName}\` not found in the command config.`);
+	}
+
+	const commandName = commandInfo.name;
+	const commandCategory = commandInfo.category;
 
 	const commandPath = path.join(__dirname, '..', 'commands', commandCategory, `${commandName}.js`);
 
