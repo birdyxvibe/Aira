@@ -1,22 +1,28 @@
 import { EmbedBuilder } from 'discord.js';
-import { getUser, updateUser } from '#database/user';
+import user from '#database/user.js';
 
 export const execute = async (client, interaction) => {
 	
-	const user = await getUser(interaction.user.id);
+	const userData = await user.getUser(interaction.user.id);
 	
-	if (user.nextDaily.getTime() > Date.now()) {
-		const onCooldownEmbed = new EmbedBuilder()
-			.setColor('#d48e85')
-			.setTitle('`⏳` Command on Cooldown')
-			.setDescription(`Your daily income is on cooldown!\n> You may claim it again <t:${Math.floor(user.nextDaily.getTime/1000)}:R:>!`);
+	if (userData.nextDaily.getTime() > Date.now()) {
+		const onCooldownResponse = new EmbedBuilder()
+			.setColor('#ebf86c')
+			.setTitle('`⏳` *Command on Cooldown*')
+			.setDescription(`This command is currently on cooldown.\nYou may use it again <t:${Math.floor(userData.nextDaily.getTime()/1000)}:R>`);
 
-		return interaction.reply({ embeds: [onCooldownEmbed] });
+		return interaction.reply({ embeds: [onCooldownResponse] });
 	}
 
-	await updateUser(interaction.user.id, { 
-		Coins: { increment: 10 },
+	const dailyReward = Math.floor(Math.random()*21)+5; //generate number between 5 and 25
+	const successResponse = new EmbedBuilder()
+		.setColor('#3aed3d')
+		.setTitle('`📅` Daily Income Claimed!')
+		.setDescription(`You have claimed your daily income of ${dailyReward}\`🪙\``);
+
+	await user.updateUser(interaction.user.id, { 
+		Coins: { increment: dailyReward },
 		nextDaily: new Date(Date.now() + 86400000)
 	});
-
+	return interaction.reply({ embeds: [successResponse] });
 };

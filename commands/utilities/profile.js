@@ -1,5 +1,5 @@
 import { EmbedBuilder } from 'discord.js';
-import user from '#database/user';
+import { getUser } from '#database/user';
 
 /**
  * Ping command — checks bot latency.
