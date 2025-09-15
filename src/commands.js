@@ -10,5 +10,9 @@ export default [
 	{
 		'name': 'profile',
 		'description': 'View your user profile.'
+	},
+	{
+		'name': 'daily',
+		'description': 'Claim your daily income and build your streak!'
 	}
 ];

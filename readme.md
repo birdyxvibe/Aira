@@ -13,3 +13,7 @@
 2) Make sure that BOT_TOKEN is your application's token, and that ClientID matches. Make sure that GuildID is the ID of your test guild.
 3) Run **npm run load** to update application commands.
 4) Run **npm run start** or **node .** to activate your application.
+
+## Running Postgres Locally (MacOS)
+
+1) Once installed, you can use **brew services start postgresql** to start postgres.

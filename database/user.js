@@ -1,20 +1,38 @@
+// @ts-check
+
 import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
-export const getUser = async (discordId) => {
-	let user =  await prisma.user.findUnique({ 
-		where: { discordId } 
-	});
-	
-	if (!user) {
-		user = await createUser(discordId);
-	}
+/**
+ * 
+ * @param {string} DiscordId 
+ * @returns {Promise<import('@prisma/client').User>};}
+ */
+const getUser = async (DiscordId) => {
+	let user =  await prisma.user.findUnique({ where: { DiscordId } });
 
+	if (!user) { user = await createUser(DiscordId); }
+	
 	return user;
 };
 
-export const createUser = async (discordId) => {
+const createUser = async (DiscordId) => {
 	return await prisma.user.create({
-		data: { discordId }
+		data: { DiscordId }
 	});
 };
+
+/**
+ * 
+ * @param {string} DiscordId 
+ * @param {import('@prisma/client').Prisma.UserUpdateInput} data 
+ * @returns {Promise<import('@prisma/client').User>}
+ */
+const updateUser = async (DiscordId, data) => {
+	return await prisma.user.update({
+		where: { DiscordId },
+		data: data,
+	});
+};
+
+export { getUser, createUser, updateUser };

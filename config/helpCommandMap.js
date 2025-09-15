@@ -1,3 +1,4 @@
+// Maps out all commands to be displayed in the `/help` command. 
 export default {
 	'home': {
 		button: null,
@@ -5,7 +6,8 @@ export default {
 		title: '`❓` Command Information',
 		description: 'For further information on a command, select the command\'s corresponding category below.',
 		fields: [
-			{ name: '`⚙️` Utilities', value: '`ping` `help`'}	
+			{ name: '`⚙️` Utilities', value: '`ping` `help` `profile`'},
+			{ name: '`⚙️` Utilities', value: '`ping` `help` `profile`'},
 		]
 	},
 	'utilities': {
@@ -14,8 +16,17 @@ export default {
 		title: '`⚙️` Utilities Information',
 		description: 'Below is information on the **utilities** commands.',
 		fields: [
-			{ name: '`❓` help', value: '> View this help menu', inline: true},
-			{ name: '`📶` ping', value: '> View the application\'s latency', inline: true}
+			{ name: '`❓` help', value: '> View this help menu', inline: true },
+			{ name: '`📶` ping', value: '> View the application\'s latency', inline: true }
 		]
 	},
+	'economy': {
+		button: null,
+		color: '#',
+		title: '`💸` Economy Information',
+		description: 'Below is information on the **economy** commands.',
+		fields: [
+			{ name: '`📆` daily', value: '> Claim your daily income', inline: true },
+		]
+	}
 };

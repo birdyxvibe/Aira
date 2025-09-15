@@ -8,10 +8,13 @@ datasource db {
 }
 
 model User {
-  id            Int         @id @default(autoincrement())
-  createdAt     DateTime    @default(now())
+  id            				Int         @id @default(autoincrement())
+  CreatedAt     				DateTime    @default(now())
   
-  discordId     String      @unique
+  DiscordId     				String      @unique
 
-  Coins         Int         @default(0)
+  Coins         				Int         @default(0)
+
+	DailyIncomeNext				DateTime		@default(now())
+	DailyStreak						Int					@default(0)
 }

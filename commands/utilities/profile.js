@@ -1,21 +1,19 @@
 import { EmbedBuilder } from 'discord.js';
-import user from '#database/user';
+import * as userDatabase from '#database/user.js';
 
 /**
- * Ping command — checks bot latency.
- * @param {Client} client
- * @param {Interaction} interaction
+ * Profile Command - Displays Profile Information
+ * @param {import('discord.js').Client} client
+ * @param {import('discord.js').ChatInputCommandInteraction | import('discord.js').ButtonInteraction} interaction
  */
 export const execute = async (client, interaction) => {
 
-	const prisma = new PrismaClient();
-	const user = await prisma.user.findUnique({
-		where: { discordId: interaction.user.id }
-	});
+	const userData = await userDatabase.getUser(interaction.user.id);
 
 	const profileEmbed = new EmbedBuilder()
 		.setColor('#6691C2')
-		.setTitle(`\`ID-${user.id}\` ${interaction.user.username}`)
+		.setTitle(`\`ID-${userData.id}\` ${interaction.user.username}`)
+		.setDescription(`Coins: ${userData.Coins}`)
 		.setThumbnail(interaction.user.displayAvatarURL());
 
 	interaction.reply({ embeds: [profileEmbed] });

@@ -7,9 +7,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export const run = async(client, command, interaction) => {
-	commandInfo = commands[command];
-	commandName = commandInfo.name;
-	commandCategory = commandInfo.category;
+	const commandInfo = commands[command];
+	const commandName = commandInfo.name;
+	const commandCategory = commandInfo.category;
 
 	const commandPath = path.join(__dirname, '..', 'commands', commandCategory, `${commandName}.js`);
 
@@ -19,7 +19,7 @@ export const run = async(client, command, interaction) => {
 
 	try {
 		const commandUrl = pathToFileURL(commandPath);
-		const commandModule = await import(commandUrl);
+		const commandModule = await import(commandUrl.toString());
 
 		if (typeof commandModule.execute !== 'function') {
 			return interaction.reply(`**Error Code:** \`404\`\n> \`❌\` Could not find an execute function in **${commandName}** in the **${commandCategory}** directory`);

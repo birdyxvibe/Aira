@@ -1,9 +1,9 @@
 import { EmbedBuilder } from 'discord.js';
 
 /**
- * Ping command — checks bot latency.
- * @param {Client} client
- * @param {Interaction} interaction
+ * Ping command — Displays application latency
+ * @param {import('discord.js').Client} client
+ * @param {import('discord.js').ChatInputCommandInteraction | import('discord.js').ButtonInteraction} interaction
  */
 export const execute = (client, interaction) => {
 

@@ -26,7 +26,9 @@ const rest = new REST({ version: '10' }).setToken(process.env.BOT_TOKEN);
 			);
 		}
 
+		//@ts-ignore
 		console.log(`📝 Refreshed ${cmds.length} ${guildId ? 'GUILD' : 'CLIENT'} commands!`);
+		
 	} catch (err) {
 		console.error(err);
 		console.log('⚠️ Oops! Something went wrong, please try again!');

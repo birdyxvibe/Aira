@@ -2,9 +2,9 @@ import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentTy
 import commandMap from '#config/helpCommandMap.js';
 
 /**
- * Help command — check active commands
- * @param {Client} client
- * @param {Interaction} interaction
+ * Help command — Displays active commands
+ * @param {import('discord.js').Client} client
+ * @param {import('discord.js').ChatInputCommandInteraction | import('discord.js').ButtonInteraction} interaction
  */
 export const execute = async (client, interaction) => {
 	const HelpEmbed = new EmbedBuilder()
@@ -22,6 +22,13 @@ export const execute = async (client, interaction) => {
 		.setEmoji('🏠')
 		.setLabel('Home')
 		.setStyle(ButtonStyle.Primary);
+	
+	const helpECONOMYbutton = new ButtonBuilder()
+		.setCustomId('help-economy')
+		.setDisabled(false)
+		.setEmoji('💸')
+		.setLabel('Economy')
+		.setStyle(ButtonStyle.Success);
 
 	const helpUTILITIESbutton = new ButtonBuilder()
 		.setCustomId('help-utilities')
@@ -32,13 +39,14 @@ export const execute = async (client, interaction) => {
 
 	commandMap.home.button = helpHOMEbutton;
 	commandMap.utilities.button = helpUTILITIESbutton;
+	commandMap.economy.button = helpECONOMYbutton;
 
 	let lastPageButton = helpHOMEbutton;
 
 	const CategoriesRow = new ActionRowBuilder()
-		.addComponents([helpHOMEbutton, helpUTILITIESbutton]);
+		.addComponents(helpHOMEbutton, helpECONOMYbutton, helpUTILITIESbutton);
 
-	const interactionResponse = await interaction.reply({ embeds: [HelpEmbed], components: [CategoriesRow] });
+	const interactionResponse = await interaction.reply({ embeds: [HelpEmbed], components: [CategoriesRow.toJSON()] });
 
 	const filter = itr => {
 		const result = interaction.user === itr.user;
@@ -66,7 +74,7 @@ export const execute = async (client, interaction) => {
 		lastPageButton = pageData.button;
 		lastPageButton.setDisabled(true);
 
-		interaction.editReply({ embeds: [newEmbed], components: [CategoriesRow] });
+		interaction.editReply({ embeds: [newEmbed], components: [CategoriesRow.toJSON()] });
 
 		buttonCollector.resetTimer();
 	});
