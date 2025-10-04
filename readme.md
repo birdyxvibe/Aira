@@ -17,6 +17,14 @@
 ## Running Postgres Locally (MacOS)
 1) Once installed, you can use **brew services start postgresql** to start postgres.
 
+## Features
+Currently, Aira includes the following features
+- Economy System, fully seperate by guilds, and manageable by server administration
+- Daily Income System: Earn daily income simply by running a command once a day
+- Daily Income Challenges: Earn additional daily income by completing tasks every day, and build a streak!
+- Cloud Database: All your data is stored in our cloud, meaning you don't have to set your own database up! _(Data usage in line with our privacy policy)_
+- Fishing System _(Coming Soon!)_: Fish within your guild and compete to complete your collection! Users can level up their fishing rods and skills in over 100 different ways!
+- Profile System: Allows players to view their profile, including all their statistics (as configured by guild owners)
 
 ## Demos & Screenshots
 Please note that some screenshots may not be indicitive of all features pushed to this repository as some features are still Work In Progress.
