@@ -1,3 +1,4 @@
+The following has been added to assist anyone looking to assist in the development of this application. Please scroll down for additional information and screenshots on the application.
 ## When Pulling from Git
 1) Ensure you run **npx prisma generate** to generate the database with the correct migration.
 2) Ensure ENV variables are consistient (for local: BOT_TOKEN, DATABASE_URL, ClientID, GuildID; remove GuildID in production)
